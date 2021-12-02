@@ -6,7 +6,6 @@ from api.models import Category
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
 
-
 class PostSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     comments = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
@@ -40,7 +39,9 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = ['id', 'name', 'owner', 'posts']
 
-
+class Comments(serializers.ModelSerializer):
+    owner = serializers.ReadOnlyField(source='owner.username')
+    
 
 class RegisterSerializer(serializers.ModelSerializer):
 

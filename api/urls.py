@@ -11,7 +11,7 @@ urlpatterns = [
     path('comments/<int:pk>/', views.CommentDetail.as_view()),
     path('categories/', views.CategoryList.as_view()),
     path('categories/<int:pk>/', views.CategoryDetail.as_view()),
-    #path('delete/<delete_id>/', views.delete, name="delete"),
+    path('delete/<delete_id>/', views.delete, name="delete"),
     path('<int:pk>/', views.RetrieveUpdateDestroyAPIView.as_view(), name="delete"),
     path('register/', views.RegisterView.as_view(), name='auth_register'),
 
